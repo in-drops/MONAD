@@ -52,7 +52,7 @@ def activity(bot: Bot):
         monad_balance_after = Onchain(bot.account, Chains.MONAD_TESTNET).get_balance().ether
         if monad_balance_after > monad_balance_before:
             logger.success(
-                f'Активность на GasZip прошла успешно! Обновлённый баланс в сети {Chains.SEPOLIA_TESTNET.name.upper()}: {monad_balance_after:.5f} {Chains.MONAD_TESTNET.native_token}.')
+                f'Активность на GasZip прошла успешно! Обновлённый баланс в сети {Chains.MONAD_TESTNET.name.upper()}: {monad_balance_after:.5f} {Chains.MONAD_TESTNET.native_token}.')
         break
     else:
         logger.error('Транзакция не прошла!')
