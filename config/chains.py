@@ -123,7 +123,7 @@ class Chains:
     MONAD_TESTNET = Chain(
         name='monad_testnet',
         rpc='https://testnet-rpc.monad.xyz',
-        chain_id=143,
+        chain_id=10143,
         native_token='MON',
         metamask_name='MONAD TESTNET',
     )
