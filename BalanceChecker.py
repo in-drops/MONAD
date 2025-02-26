@@ -24,7 +24,6 @@ def main():
 
     for i in range(config.cycle):
         chain, token_type, token_address = input_checker()
-
         for account in accounts_for_work:
             worker(account, chain, token_type, token_address)
             random_sleep(*config.pause_between_profile)
