@@ -15,10 +15,9 @@ def main():
 
     init_logger()
     accounts = get_accounts()
+    accounts_for_work = select_profiles(accounts)
 
     for i in range(config.cycle):
-
-        accounts_for_work = select_profiles(accounts)
         for account in accounts_for_work:
             worker(account)
             random_sleep(*config.pause_between_profile)
