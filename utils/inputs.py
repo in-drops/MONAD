@@ -28,7 +28,7 @@ def input_cycle_amount() -> int:
         amount_cleaned = re.sub(r'\D', '', amount_input)
         try:
             cycle_amount = int(amount_cleaned)
-            print(f"Пауза между циклами: {int(amount_input)} сек.!\n")
+            print(f"Введено количество циклов: {int(amount_input)}!\n")
             return cycle_amount
         except ValueError:
             print("Некорректный ввод! Попробуйте снова.")

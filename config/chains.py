@@ -136,6 +136,16 @@ class Chains:
         metamask_name='Sepolia',
     )
 
+    SOMNIA_TESTNET = Chain(
+        name='somnia_testnet',
+        rpc='https://dream-rpc.somnia.network',
+        chain_id=50312,
+        native_token='STT',
+        metamask_name='Somnia Testnet',
+    )
+
+
+
     # FTM = Chain(
     #     name='ftm',
     #     rpc='https://rpc.ankr.com/fantom/',

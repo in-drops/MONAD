@@ -361,3 +361,7 @@ def get_user_agent() -> str:
     user_agents = get_list_from_file("user_agents.txt")
     return random.choice(user_agents)
 
+def generate_random_evm_address():
+    private_key = ''.join(random.choices('0123456789abcdef', k=64))
+    account = Web3().eth.account.from_key(private_key)
+    return account.address
