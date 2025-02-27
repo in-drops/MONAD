@@ -8,7 +8,6 @@ from core.excel import Excel
 from core.onchain import Onchain
 from models.account import Account
 from models.amount import Amount
-from snippets.activities.relay import relay
 from utils.inputs import input_pause, input_cycle_pause, input_cycle_amount
 from utils.logging import init_logger
 from utils.utils import (random_sleep, get_accounts, select_profiles, generate_random_evm_address, get_user_agent)
