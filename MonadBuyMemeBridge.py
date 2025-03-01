@@ -39,20 +39,19 @@ def activity(bot: Bot):
     get_user_agent()
     bot.onchain.change_chain(Chains.ARBITRUM_ONE)
     monad_balance_before = Onchain(bot.account, Chains.MONAD_TESTNET).get_balance().ether
-    gas_zip_address = '0x391E7C679d29bD940d63be94AD22A25d25b5A604'
-    amount = Amount(0.001)
-    tx = bot.onchain._prepare_tx(value=amount, to_address=gas_zip_address)
-    tx['data'] = '0x0101b1'
+    contract_address = '0x77A6ab7DC9096e7a311Eb9Bb4791494460F53c82'
+    amount = Amount(0.0005)
+    tx = bot.onchain._prepare_tx(value=amount, to_address=contract_address)
+    tx['data'] = '0x11cc'
     bot.onchain._estimate_gas(tx)
     tx_hash = bot.onchain._sign_and_send(tx)
     logger.info(f'Транзакция отправлена: {tx_hash}')
-    random_sleep(5, 10)
 
     for _ in range(60):
         monad_balance_after = Onchain(bot.account, Chains.MONAD_TESTNET).get_balance().ether
         if monad_balance_after > monad_balance_before:
             logger.success(
-                f'Активность на GasZip прошла успешно! Обновлённый баланс в сети {Chains.MONAD_TESTNET.name.upper()}: {monad_balance_after:.5f} {Chains.MONAD_TESTNET.native_token}.')
+                f'Активность на MemeBridge прошла успешно! Обновлённый баланс в сети {Chains.MONAD_TESTNET.name.upper()}: {monad_balance_after:.5f} {Chains.MONAD_TESTNET.native_token}.')
         break
     else:
         logger.error('Транзакция не прошла!')
