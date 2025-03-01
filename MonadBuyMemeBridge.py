@@ -38,20 +38,20 @@ def activity(bot: Bot):
 
     get_user_agent()
     bot.onchain.change_chain(Chains.ARBITRUM_ONE)
-    monad_balance_before = Onchain(bot.account, Chains.MONAD_TESTNET).get_balance().ether
+    sepolia_balance_before = Onchain(bot.account, Chains.SEPOLIA_TESTNET).get_balance().ether
     contract_address = '0x77A6ab7DC9096e7a311Eb9Bb4791494460F53c82'
     amount = Amount(0.0005)
     tx = bot.onchain._prepare_tx(value=amount, to_address=contract_address)
-    tx['data'] = '0x11cc'
+    tx['data'] = '0x11c9'
     bot.onchain._estimate_gas(tx)
     tx_hash = bot.onchain._sign_and_send(tx)
     logger.info(f'Транзакция отправлена: {tx_hash}')
 
     for _ in range(60):
-        monad_balance_after = Onchain(bot.account, Chains.MONAD_TESTNET).get_balance().ether
-        if monad_balance_after > monad_balance_before:
+        sepolia_balance_after = Onchain(bot.account, Chains.SEPOLIA_TESTNET).get_balance().ether
+        if sepolia_balance_after > sepolia_balance_before:
             logger.success(
-                f'Активность на MemeBridge прошла успешно! Обновлённый баланс в сети {Chains.MONAD_TESTNET.name.upper()}: {monad_balance_after:.5f} {Chains.MONAD_TESTNET.native_token}.')
+                f'Активность на MemeBridge прошла успешно! Обновлённый баланс в сети {Chains.SEPOLIA_TESTNET.name.upper()}: {sepolia_balance_after:.5f} {Chains.SEPOLIA_TESTNET.native_token}.')
         break
     else:
         logger.error('Транзакция не прошла!')
