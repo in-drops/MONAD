@@ -50,6 +50,7 @@ def activity(bot: Bot):
     balance_before = bot.onchain.get_balance().ether
     if balance_before < (random_amount + 0.0001):
         logger.error('Баланс недостаточный или слишком маленький! Сделайте пополнение')
+        return
     tx_params = bot.onchain._prepare_tx(value=random_amount, to_address=random_address)
     tx_params = bot.onchain._estimate_gas(tx_params)
     tx_hash = bot.onchain._sign_and_send(tx_params)
