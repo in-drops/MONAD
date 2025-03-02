@@ -101,6 +101,7 @@ class Chains:
         name='soneium',
         rpc='https://rpc.soneium.org',
         chain_id=1868,
+        native_token='ETH',
         metamask_name='Soneium',
     )
 
