@@ -127,6 +127,7 @@ class Chains:
         chain_id=10143,
         native_token='MON',
         metamask_name='MONAD TESTNET',
+        multiplier=1.1
     )
 
     SEPOLIA_TESTNET = Chain(
