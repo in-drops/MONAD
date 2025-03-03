@@ -76,7 +76,7 @@ def activity(bot: Bot, from_chain):
     bot.onchain._estimate_gas(tx)
     tx_hash = bot.onchain._sign_and_send(tx)
     logger.info(f'Транзакция отправлена: {tx_hash}')
-
+    random_sleep(20, 30)
     for _ in range(60):
         monad_balance_after = Onchain(bot.account, Chains.MONAD_TESTNET).get_balance().ether
         if monad_balance_after > monad_balance_before:
