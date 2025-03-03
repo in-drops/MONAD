@@ -54,6 +54,7 @@ def activity(bot: Bot):
     tx_params = bot.onchain._prepare_tx(value=random_amount, to_address=random_address)
     tx_params = bot.onchain._estimate_gas(tx_params)
     tx_hash = bot.onchain._sign_and_send(tx_params)
+    random_sleep(10, 20)
     for _ in range(60):
         balance_after = bot.onchain.get_balance().ether
         if balance_after < balance_before:

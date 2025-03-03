@@ -46,7 +46,7 @@ def activity(bot: Bot):
     bot.onchain._estimate_gas(tx)
     tx_hash = bot.onchain._sign_and_send(tx)
     logger.info(f'Транзакция отправлена: {tx_hash}')
-    random_sleep(5, 10)
+    random_sleep(10, 20)
 
     for _ in range(60):
         sepolia_balance_after = Onchain(bot.account, Chains.SEPOLIA_TESTNET).get_balance().ether
