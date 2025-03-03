@@ -43,8 +43,9 @@ def main():
     init_logger()
     accounts = get_accounts()
     accounts_for_work = select_profiles(accounts)
-    pause = input_pause()
     from_chain = input_withdraw_chain()
+    pause = input_pause()
+
 
     for i in range(config.cycle):
         random.shuffle(accounts_for_work)
