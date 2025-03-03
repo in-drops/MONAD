@@ -46,7 +46,6 @@ def main():
     from_chain = input_withdraw_chain()
     pause = input_pause()
 
-
     for i in range(config.cycle):
         random.shuffle(accounts_for_work)
         for account in accounts_for_work:
