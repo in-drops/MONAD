@@ -49,7 +49,7 @@ def activity(bot: Bot):
     bot.onchain._estimate_gas(tx)
     tx_hash = bot.onchain._sign_and_send(tx)
     logger.info(f'Транзакция отправлена! Данные занесены в таблицу MonadActivity.xls! Hash: {tx_hash}')
-    excel_report.increase_counter(f'MagicEden NFT')
+    excel_report.increase_counter(f'MagicEden NFT #2')
 
 
 if __name__ == '__main__':
