@@ -427,7 +427,7 @@ class Onchain:
         # Получение количество транзакций
         nonce = self.w3.eth.get_transaction_count(address)
         print(f'{self.account.profile_number}: Количество транзакций в сети {self.chain.name.upper()}: {nonce}')
-
+        return nonce
 
 
 
