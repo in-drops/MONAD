@@ -36,15 +36,16 @@ def worker(account: Account) -> None:
 def activity(bot: Bot):
 
     get_user_agent()
-    chains = Chains.get_chains_list()
+    excel_report = Excel(bot.account, file='MonadActivity.xlsx')
+    excel_report.set_cell('Address', f'{bot.account.address}')
+    excel_report.set_date('Date')
 
-    for chain in chains:
-        try:
-            onchain_instance = Onchain(bot.account, chain)
-            onchain_instance.get_tx_count(address=bot.account.address)
-        except Exception as e:
-            print(f'Ошибка в сети {chain.name.upper()}: {e}')
-            continue
+    try:
+        onchain_instance = Onchain(bot.account, Chains.MONAD_TESTNET)
+        onchain_instance.get_tx_count(address=bot.account.address)
+        excel_report.increase_counter(f'Txs Count')
+    except Exception as e:
+        logger.error(f'Ошибка в сети {Chains.MONAD_TESTNET.name.upper()}: {e}')
 
 if __name__ == '__main__':
     try:
