@@ -42,14 +42,14 @@ def activity(bot: Bot):
     excel_report.set_cell('Address', f'{bot.account.address}')
     excel_report.set_date('Date')
     bot.onchain.change_chain(Chains.MONAD_TESTNET)
-    magic_eden_address = '0xCf2f441dFAb8fbe0587513634C05952B7Db48E28'
+    magic_eden_address = '0x4E21dbdcB17E7EaD0e2dC4e83E6b48Cdb8e8C449'
     amount = Amount(0)
     tx = bot.onchain._prepare_tx(value=amount, to_address=magic_eden_address)
-    tx['data'] = f'0x9b4f3af5000000000000000000000000{bot.account.address[2:]}0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000'
+    tx['data'] = f'0x9b4f3af5000000000000000000000000{bot.account.address[2:]}0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000'
     bot.onchain._estimate_gas(tx)
     tx_hash = bot.onchain._sign_and_send(tx)
     logger.info(f'Транзакция отправлена! Данные занесены в таблицу MonadActivity.xls! Hash: {tx_hash}')
-    excel_report.increase_counter(f'MagicEden NFT #2')
+    excel_report.increase_counter(f'MagicEden NFT #10')
 
 
 if __name__ == '__main__':
