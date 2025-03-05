@@ -51,9 +51,6 @@ def activity(bot: Bot):
     logger.info(f'Транзакция отправлена! Данные занесены в таблицу MonadActivity.xls! Hash: {tx_hash}')
     excel_report.increase_counter(f'Nerzo NFT #2')
 
-
-
-
 if __name__ == '__main__':
     try:
         main()
