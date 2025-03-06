@@ -45,7 +45,7 @@ def activity(bot: Bot):
         onchain_instance = Onchain(bot.account, Chains.MONAD_TESTNET)
         nonce = onchain_instance.get_tx_count(address=bot.account.address)
         excel_report.set_cell(f'Txs Count', f'{nonce}')
-        logger.info(f'Данные занесены в таблицу MonadActivity.xls!')
+        logger.info(f'Данные занесены в таблицу MonadActivity.xlsx!')
     except Exception as e:
         logger.error(f'Ошибка в сети {Chains.MONAD_TESTNET.name.upper()}: {e}')
 
