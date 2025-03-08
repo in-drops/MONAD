@@ -333,5 +333,10 @@ class Metamask:
                         mm_page.get_by_test_id(button).click()
                         logger.info(f'{self.ads.profile_number} Успешно подтверждено в Metamask!')
                         break
+                    else:
+                        if mm_page.locator('button', has_text='Review alert').count():
+                            mm_page.get_by_test_id('confirm-footer-cancel-button').click()
+                            logger.error(f'{self.ads.profile_number} Ошибка "Review Alert" в Metamask! Возможно не хватает средств для оплаты транзакции.')
+
             mm_page.close()
 
