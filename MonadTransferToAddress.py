@@ -27,7 +27,7 @@ def main():
             worker(account)
             random_sleep(pause)
         logger.success(f'Цикл {i + 1} завершен, обработано {len(accounts_for_work)} аккаунтов!')
-        logger.info(f'Ожидание перед следующим циклом ~{config.pause_between_cycle[1]} секунд!')
+        logger.info(f'Ожидание перед следующим циклом {cycle_pause} секунд!')
         random_sleep(cycle_pause)
 
 def worker(account: Account) -> None:
