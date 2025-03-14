@@ -42,8 +42,8 @@ def activity(bot: Bot):
     excel_report.set_cell('Address', f'{bot.account.address}')
     excel_report.set_date('Date')
     bot.onchain.change_chain(Chains.MONAD_TESTNET)
-    magic_eden_address = '0x1c04a8Ac870c8413f32276eD62830a8733614210'
-    amount = Amount(0)
+    magic_eden_address = '0x5CB98bC5fd070b75DBEF74bAA95476f5DC2BF272'
+    amount = Amount(0.01)
     tx = bot.onchain._prepare_tx(value=amount, to_address=magic_eden_address)
     tx['data'] = f'0x9b4f3af5000000000000000000000000{bot.account.address[2:]}0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000'
     bot.onchain._estimate_gas(tx)
